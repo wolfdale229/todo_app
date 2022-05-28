@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="content">
+    <div class="columns is-centered">
+        <div class="column is-two-thirds" >
+            <div class="columns" >
+                <div class="column" >
+                    <table class="table is-hoverable">
+                        <thead class="has-text-centered">
+                            <tr>
+                                <th>s/n</th>
+                                <th>Title</th>
+                                <th>Description</th>
+                            </tr>
+                        </thead>
+                        <tbody class="has-text-centered">
+                            <ul>
+                                {% for task in tasks %}
+                                <tr>
+                                    <td> {{task.id}} </td>
+                                    <td> {{task.title}}</td>
+                                    <td> {{task.description}}</td>
+                                </tr>
+                                {% endfor %}
+                            </ul>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="columns" >
+                <div class="column" >
+                    <form method="POST" id="new task" action="/tasks">
+                        {% csrf-field %}
+                        <div class="field" >
+                            <label class="label"  for="title" >
+                                Title
+                            </label>
+                            <input class="input"
+                                   type="text"
+                                   name="title"
+                                   value="{{title}}"/>
+                        </div>
+                        <div class="field" >
+                            <label class="label"  for="description" >
+                                Description
+                            </label>
+                            <textarea class="textarea"
+                            name="description">
+{{description}}
+                            </textarea>
+                        </div>
+                        <input class="button is-primary"
+                               type="submit"
+                               value="comment" />
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
