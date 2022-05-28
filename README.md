@@ -4,6 +4,9 @@ generated using Luminus version "4.38"
 
 FIXME
 
+## Description
+Simple REST API endpoint Todo application. A user can create new tasks and also view existing tasks.
+
 ## Prerequisites
 
 You will need [Leiningen][1] 2.0 or above installed.
